@@ -1,0 +1,922 @@
+[
+  {
+    "id": "surveyor-3",
+    "name": "Surveyor 3",
+    "destination": "Moon",
+    "hardwareType": "Lander",
+    "launchDate": "1967-04-17",
+    "arrivalDate": "1967-04-20",
+    "missionEndDate": "1967-05-04",
+    "status": "No longer operational",
+    "statusAsOf": "1967-05-04",
+    "statusSourceUrl": "https://solarsystem.nasa.gov/missions/surveyor-3/in-depth/",
+    "physicalFate": "The lander remains on the Moon in Oceanus Procellarum. Apollo 12 astronauts visited it in 1969 and returned selected parts to Earth.",
+    "missionObjective": "Surveyor 3 tested a soft landing and studied the lunar surface before crewed Apollo landings.",
+    "howItWorked": "A television camera, soil-mechanics scoop, and simple instruments observed the ground and tested how a lander could settle on lunar soil.",
+    "hardwareDiagram": {
+      "title": "Surveyor 3 lander, documented hardware view",
+      "description": "A NASA photograph provides the hardware view. The component labels identify only hardware documented for Surveyor 3; select one to learn what it did.",
+      "sourceUrl": "https://solarsystem.nasa.gov/missions/surveyor-3/in-depth/",
+      "sourceLabel": "NASA Solar System Exploration: Surveyor 3",
+      "components": [
+        {
+          "id": "television-camera",
+          "label": "Television camera",
+          "explanation": "Surveyor 3's camera returned images of the lunar surface and landing site.",
+          "importance": "It let mission teams see the terrain and assess the landing environment.",
+          "sourceUrl": "https://solarsystem.nasa.gov/missions/surveyor-3/in-depth/"
+        },
+        {
+          "id": "soil-mechanics-scoop",
+          "label": "Soil-mechanics scoop",
+          "explanation": "The scoop disturbed and sampled lunar soil near the lander.",
+          "importance": "Its work helped characterize the strength and texture of lunar soil.",
+          "sourceUrl": "https://solarsystem.nasa.gov/missions/surveyor-3/in-depth/"
+        },
+        {
+          "id": "surface-instruments",
+          "label": "Surface instruments",
+          "explanation": "Surveyor 3 carried simple instruments that observed the surface and supported its landing investigation.",
+          "importance": "Together, these measurements tested what a lander would encounter on the Moon.",
+          "sourceUrl": "https://solarsystem.nasa.gov/missions/surveyor-3/in-depth/"
+        }
+      ]
+    },
+    "discoveries": [
+      "It returned more than 6,000 television images of the lunar surface.",
+      "Its scoop helped characterize the strength and texture of lunar soil.",
+      "Apollo 12 found that some exposed materials had changed during their time on the Moon."
+    ],
+    "whyItMatters": "Surveyor 3 was both a robotic geologist and a rehearsal for humans working safely on the Moon.",
+    "timeline": [
+      {
+        "date": "1967-04-17",
+        "label": "Launch",
+        "description": "Surveyor 3 launches from Cape Canaveral."
+      },
+      {
+        "date": "1967-04-20",
+        "label": "Landing",
+        "description": "It lands in Oceanus Procellarum after two engine shutdowns and restarts."
+      },
+      {
+        "date": "1969-11-19",
+        "label": "Apollo 12 visit",
+        "description": "Apollo 12 astronauts land about 180 meters from Surveyor 3 and inspect it during their second excursion."
+      }
+    ],
+    "imageReferences": [
+      "as12-48-7121",
+      "AS12-48-7133"
+    ],
+    "sources": [
+      {
+        "title": "NASA Solar System Exploration: Surveyor 3",
+        "organization": "NASA",
+        "url": "https://solarsystem.nasa.gov/missions/surveyor-3/in-depth/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Surveyor 3 objective, landing, mission outcome"
+        ]
+      },
+      {
+        "title": "Apollo 12",
+        "organization": "NASA",
+        "url": "https://www.nasa.gov/mission/apollo-12/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Apollo 12 mission objectives and mission history"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "mission record",
+        "sourceUrls": [
+          "https://solarsystem.nasa.gov/missions/surveyor-3/in-depth/"
+        ]
+      },
+      {
+        "claim": "Apollo 12 mission objectives and mission history",
+        "sourceUrls": [
+          "https://www.nasa.gov/mission/apollo-12/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "apollo-12-lunar-hardware",
+    "name": "Apollo 12 lunar hardware",
+    "destination": "Moon",
+    "hardwareType": "Instrument",
+    "launchDate": "1969-11-14",
+    "arrivalDate": "1969-11-19",
+    "missionEndDate": "1969-11-24",
+    "status": "No longer operational",
+    "statusAsOf": "1977-09-30",
+    "statusSourceUrl": "https://ntrs.nasa.gov/citations/20180008613",
+    "physicalFate": "The Apollo 12 lunar module descent stage, ALSEP experiments, cameras, and other equipment remain at the landing site in Oceanus Procellarum. Individual instruments have different operational histories.",
+    "missionObjective": "Apollo 12 made a precision lunar landing, inspected Surveyor 3, and deployed a long-lived package of lunar science experiments.",
+    "howItWorked": "The ALSEP package used separate instruments to measure moonquakes, the lunar environment, and the Moon's interior and surface properties.",
+    "discoveries": [
+      "ALSEP experiments returned data about lunar seismic activity and the environment.",
+      "The crew collected samples near a known robotic landing site.",
+      "The landing demonstrated precision navigation for future lunar fieldwork."
+    ],
+    "whyItMatters": "Apollo 12 connected a robot's measurements with human geology and left a scientific station on another world.",
+    "timeline": [
+      {
+        "date": "1969-11-14",
+        "label": "Launch",
+        "description": "Apollo 12 launches for the Moon."
+      },
+      {
+        "date": "1969-11-19",
+        "label": "Landing",
+        "description": "Intrepid lands near Surveyor 3."
+      },
+      {
+        "date": "1969-11-20",
+        "label": "Science station",
+        "description": "The crew deploys ALSEP instruments before leaving the surface."
+      },
+      {
+        "date": "1977-09-30",
+        "label": "Operations end",
+        "description": "NASA turns off the final Apollo ALSEP instruments to conserve resources."
+      }
+    ],
+    "imageReferences": [
+      "AS12-48-7133",
+      "as12-48-7121"
+    ],
+    "sources": [
+      {
+        "title": "Apollo 12",
+        "organization": "NASA",
+        "url": "https://www.nasa.gov/mission/apollo-12/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Apollo 12 mission objectives and mission history"
+        ]
+      },
+      {
+        "title": "Apollo 12 mission overview",
+        "organization": "Lunar and Planetary Institute",
+        "url": "https://www.lpi.usra.edu/lunar/missions/apollo/apollo-12/",
+        "sourceType": "NASA science page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "ALSEP deployment and lunar surface activities"
+        ]
+      },
+      {
+        "title": "History and Status of ALSEP and the Apollo Lunar Data Project",
+        "organization": "NASA Technical Reports Server",
+        "url": "https://ntrs.nasa.gov/citations/20180008613",
+        "sourceType": "NASA technical report",
+        "accessed": "2026-10-24",
+        "supports": [
+          "ALSEP operations ended September 30, 1977; instruments remain on the Moon"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "Apollo 12 mission objectives and mission history",
+        "sourceUrls": [
+          "https://www.nasa.gov/mission/apollo-12/"
+        ]
+      },
+      {
+        "claim": "ALSEP deployment and lunar surface activities",
+        "sourceUrls": [
+          "https://www.lpi.usra.edu/lunar/missions/apollo/apollo-12/"
+        ]
+      },
+      {
+        "claim": "ALSEP operations ended September 30, 1977",
+        "sourceUrls": [
+          "https://ntrs.nasa.gov/citations/20180008613"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spirit",
+    "name": "Spirit",
+    "destination": "Mars",
+    "hardwareType": "Rover",
+    "launchDate": "2003-06-10",
+    "arrivalDate": "2004-01-04",
+    "missionEndDate": "2010-03-22",
+    "status": "No longer operational",
+    "statusAsOf": "2011-05-25",
+    "statusSourceUrl": "https://mars.nasa.gov/mer/mission/rover/spirit/",
+    "physicalFate": "Spirit remains embedded in Martian soil at the site NASA named Troy, near Gusev Crater. NASA ended its recovery effort after the rover stopped communicating.",
+    "missionObjective": "Spirit investigated rocks and soil in Gusev Crater for evidence of past water activity.",
+    "howItWorked": "Solar panels powered a six-wheeled mobile laboratory with panoramic cameras, a robotic arm, and instruments that examined rock chemistry.",
+    "discoveries": [
+      "It found evidence that ancient water altered rocks in Gusev Crater.",
+      "It climbed Husband Hill and explored layered volcanic terrain.",
+      "It operated for years beyond its planned 90-sol mission."
+    ],
+    "whyItMatters": "Spirit showed that a small, carefully designed machine could turn a crater into a readable geological record.",
+    "timeline": [
+      {
+        "date": "2003-06-10",
+        "label": "Launch",
+        "description": "Spirit begins its journey to Mars."
+      },
+      {
+        "date": "2004-01-04",
+        "label": "Landing",
+        "description": "The rover lands in Gusev Crater."
+      },
+      {
+        "date": "2010-03-22",
+        "label": "Last communication",
+        "description": "Spirit sends its last signal before the Martian winter."
+      },
+      {
+        "date": "2011-05-25",
+        "label": "Mission complete",
+        "description": "NASA ends recovery efforts."
+      }
+    ],
+    "imageReferences": [
+      "PIA05040",
+      "PIA05120"
+    ],
+    "sources": [
+      {
+        "title": "Spirit Rover",
+        "organization": "NASA Mars Exploration Program",
+        "url": "https://mars.nasa.gov/mer/mission/rover/spirit/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Spirit landing, mission outcome, discoveries, physical location"
+        ]
+      },
+      {
+        "title": "NASA JPL Spirit mission",
+        "organization": "NASA",
+        "url": "https://www.jpl.nasa.gov/missions/mars-exploration-rover-spirit/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Spirit objective, engineering, discoveries"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "Spirit landing, mission outcome, discoveries, physical location",
+        "sourceUrls": [
+          "https://mars.nasa.gov/mer/mission/rover/spirit/"
+        ]
+      },
+      {
+        "claim": "mission record",
+        "sourceUrls": [
+          "https://www.jpl.nasa.gov/missions/mars-exploration-rover-spirit/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "opportunity",
+    "name": "Opportunity",
+    "destination": "Mars",
+    "hardwareType": "Rover",
+    "launchDate": "2003-07-07",
+    "arrivalDate": "2004-01-25",
+    "missionEndDate": "2019-02-13",
+    "status": "No longer operational",
+    "statusAsOf": "2019-02-13",
+    "statusSourceUrl": "https://mars.nasa.gov/mer/mission/rover/opportunity/",
+    "physicalFate": "Opportunity remains at Perseverance Valley in Meridiani Planum. A planet-encircling dust storm covered its solar arrays and ended communications.",
+    "missionObjective": "Opportunity studied rocks and soils in Meridiani Planum for geological evidence of ancient water.",
+    "howItWorked": "Solar arrays powered six wheels, cameras, a robotic arm, and spectrometers that identified minerals in Martian rocks and soil.",
+    "discoveries": [
+      "It found hematite concretions nicknamed blueberries.",
+      "It identified rocks shaped by ancient acidic water.",
+      "It drove farther on another world than any previous NASA rover."
+    ],
+    "whyItMatters": "Opportunity made the history of Martian water visible in ordinary-looking rocks.",
+    "timeline": [
+      {
+        "date": "2003-07-07",
+        "label": "Launch",
+        "description": "Opportunity launches toward Mars."
+      },
+      {
+        "date": "2004-01-25",
+        "label": "Landing",
+        "description": "It lands inside Eagle Crater."
+      },
+      {
+        "date": "2015-03-24",
+        "label": "Marathon",
+        "description": "It completes a marathon-distance drive."
+      },
+      {
+        "date": "2019-02-13",
+        "label": "Mission complete",
+        "description": "NASA ends the mission after the 2018 dust storm."
+      }
+    ],
+    "imageReferences": [
+      "PIA05513",
+      "PIA07463"
+    ],
+    "sources": [
+      {
+        "title": "Opportunity Rover",
+        "organization": "NASA Mars Exploration Program",
+        "url": "https://mars.nasa.gov/mer/mission/rover/opportunity/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Opportunity objective, location, mission outcome, discoveries"
+        ]
+      },
+      {
+        "title": "NASA JPL Opportunity mission",
+        "organization": "NASA",
+        "url": "https://www.jpl.nasa.gov/missions/mars-exploration-rover-opportunity/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Opportunity objective, engineering, discoveries"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "Opportunity objective, location, mission outcome, discoveries",
+        "sourceUrls": [
+          "https://mars.nasa.gov/mer/mission/rover/opportunity/"
+        ]
+      },
+      {
+        "claim": "mission record",
+        "sourceUrls": [
+          "https://www.jpl.nasa.gov/missions/mars-exploration-rover-opportunity/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "curiosity",
+    "name": "Curiosity",
+    "destination": "Mars",
+    "hardwareType": "Rover",
+    "launchDate": "2011-11-26",
+    "arrivalDate": "2012-08-06",
+    "status": "Operational",
+    "statusAsOf": "2026-10-24",
+    "statusSourceUrl": "https://mars.nasa.gov/msl/mission/status/",
+    "physicalFate": "Curiosity is operating on Mars in Gale Crater, exploring Mount Sharp. Its radioisotope power system is designed for long-duration surface science.",
+    "missionObjective": "Curiosity investigates whether Mars ever had environments able to support microbial life.",
+    "howItWorked": "A nuclear-powered rover drills rocks, carries samples into an onboard laboratory, and uses cameras and weather instruments to study its surroundings.",
+    "discoveries": [
+      "It found ancient freshwater lake environments in Gale Crater.",
+      "It detected organic molecules in Martian rocks.",
+      "It measured changing methane and radiation conditions at the surface."
+    ],
+    "whyItMatters": "Curiosity tests habitability with a mobile chemistry lab instead of only looking at rocks from a distance.",
+    "timeline": [
+      {
+        "date": "2011-11-26",
+        "label": "Launch",
+        "description": "Curiosity leaves Earth."
+      },
+      {
+        "date": "2012-08-06",
+        "label": "Landing",
+        "description": "The rover lands using the Mars Science Laboratory sky crane."
+      },
+      {
+        "date": "2014-09-24",
+        "label": "Mount Sharp",
+        "description": "Curiosity reaches the foothills of its central science target."
+      }
+    ],
+    "imageReferences": [
+      "PIA15106",
+      "PIA14253"
+    ],
+    "sources": [
+      {
+        "title": "Curiosity Mission Status",
+        "organization": "NASA Mars Exploration Program",
+        "url": "https://mars.nasa.gov/msl/mission/status/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Curiosity current status"
+        ]
+      },
+      {
+        "title": "Mars Science Laboratory: Curiosity Rover",
+        "organization": "NASA Jet Propulsion Laboratory",
+        "url": "https://www.jpl.nasa.gov/missions/mars-science-laboratory-curiosity-rover/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Curiosity objective, engineering, discoveries"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "Curiosity current status",
+        "sourceUrls": [
+          "https://mars.nasa.gov/msl/mission/status/"
+        ]
+      },
+      {
+        "claim": "Curiosity objective, engineering, discoveries",
+        "sourceUrls": [
+          "https://www.jpl.nasa.gov/missions/mars-science-laboratory-curiosity-rover/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perseverance",
+    "name": "Perseverance",
+    "destination": "Mars",
+    "hardwareType": "Rover",
+    "launchDate": "2020-07-30",
+    "arrivalDate": "2021-02-18",
+    "status": "Operational",
+    "statusAsOf": "2026-10-24",
+    "statusSourceUrl": "https://mars.nasa.gov/mars2020/mission/status/",
+    "physicalFate": "Perseverance is operating in Jezero Crater. It has cached rock samples for a possible future return to Earth and carried the Ingenuity helicopter to Mars.",
+    "missionObjective": "Perseverance searches for signs of ancient microbial life, characterizes geology, and collects carefully selected samples.",
+    "howItWorked": "Its cameras and instruments inspect rocks, a drill seals samples in tubes, and a small helicopter tests powered flight in the thin Martian atmosphere.",
+    "discoveries": [
+      "It explored an ancient river-delta environment in Jezero Crater.",
+      "It demonstrated powered flight on another planet with Ingenuity.",
+      "It has collected and sealed geologically diverse rock samples."
+    ],
+    "whyItMatters": "Perseverance is building a geological library that future missions could bring to Earth for laboratory study.",
+    "timeline": [
+      {
+        "date": "2020-07-30",
+        "label": "Launch",
+        "description": "Perseverance begins its cruise to Mars."
+      },
+      {
+        "date": "2021-02-18",
+        "label": "Landing",
+        "description": "It lands in Jezero Crater."
+      },
+      {
+        "date": "2021-04-19",
+        "label": "First flight",
+        "description": "Ingenuity makes the first powered flight on another planet."
+      }
+    ],
+    "imageReferences": [
+      "KSC-20200402-PH-JPL01_0002",
+      "KSC-20200402-PH-JPL01_0003"
+    ],
+    "sources": [
+      {
+        "title": "Mars 2020 Mission Status",
+        "organization": "NASA Mars Exploration Program",
+        "url": "https://mars.nasa.gov/mars2020/mission/status/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Perseverance current status"
+        ]
+      },
+      {
+        "title": "Mars 2020 Perseverance Rover",
+        "organization": "NASA Jet Propulsion Laboratory",
+        "url": "https://www.jpl.nasa.gov/missions/mars-2020-perseverance-rover/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Perseverance objective, engineering, discoveries"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "Perseverance current status",
+        "sourceUrls": [
+          "https://mars.nasa.gov/mars2020/mission/status/"
+        ]
+      },
+      {
+        "claim": "Perseverance objective, engineering, discoveries",
+        "sourceUrls": [
+          "https://www.jpl.nasa.gov/missions/mars-2020-perseverance-rover/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voyager-1",
+    "name": "Voyager 1",
+    "destination": "Deep space",
+    "hardwareType": "Probe",
+    "launchDate": "1977-09-05",
+    "arrivalDate": "2012-08-25",
+    "status": "Still traveling",
+    "statusAsOf": "2026-10-24",
+    "statusSourceUrl": "https://voyager.jpl.nasa.gov/mission/status/",
+    "physicalFate": "Voyager 1 is traveling through interstellar space. Its radioisotope generators provide declining power for a limited set of instruments and communications.",
+    "missionObjective": "Voyager 1 studied Jupiter and Saturn before continuing outward to investigate the space between stars.",
+    "howItWorked": "A dish antenna communicates with Earth while radioisotope generators convert plutonium decay heat into electricity.",
+    "discoveries": [
+      "It revealed active volcanoes on Io.",
+      "It found a thin ring around Jupiter.",
+      "It crossed the heliopause into interstellar space."
+    ],
+    "whyItMatters": "Voyager 1 transformed a short outer-planet flyby mission into a decades-long experiment at the edge of the Sun's influence.",
+    "timeline": [
+      {
+        "date": "1977-09-05",
+        "label": "Launch",
+        "description": "Voyager 1 leaves Earth."
+      },
+      {
+        "date": "1979-03-05",
+        "label": "Jupiter",
+        "description": "It makes a close flyby of Jupiter."
+      },
+      {
+        "date": "1980-11-12",
+        "label": "Saturn",
+        "description": "It studies Saturn and Titan."
+      },
+      {
+        "date": "2012-08-25",
+        "label": "Interstellar space",
+        "description": "NASA confirms the spacecraft crossed the heliopause."
+      }
+    ],
+    "imageReferences": [
+      "PIA17045",
+      "PIA21741"
+    ],
+    "sources": [
+      {
+        "title": "Voyager Mission Status",
+        "organization": "NASA Jet Propulsion Laboratory",
+        "url": "https://voyager.jpl.nasa.gov/mission/status/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Voyager current status, interstellar mission, power constraints"
+        ]
+      },
+      {
+        "title": "Voyager",
+        "organization": "NASA Jet Propulsion Laboratory",
+        "url": "https://www.jpl.nasa.gov/missions/voyager/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Voyager objectives, planetary encounters, discoveries"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "Voyager current status, interstellar mission, power constraints",
+        "sourceUrls": [
+          "https://voyager.jpl.nasa.gov/mission/status/"
+        ]
+      },
+      {
+        "claim": "Voyager objectives, planetary encounters, discoveries",
+        "sourceUrls": [
+          "https://www.jpl.nasa.gov/missions/voyager/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voyager-2",
+    "name": "Voyager 2",
+    "destination": "Deep space",
+    "hardwareType": "Probe",
+    "launchDate": "1977-08-20",
+    "arrivalDate": "2018-11-05",
+    "status": "Still traveling",
+    "statusAsOf": "2026-10-24",
+    "statusSourceUrl": "https://voyager.jpl.nasa.gov/mission/status/",
+    "physicalFate": "Voyager 2 is traveling through interstellar space after its encounters with all four giant planets. Its power and instrument set are gradually being reduced.",
+    "missionObjective": "Voyager 2 was designed to visit the outer planets and continue studying the heliosphere beyond them.",
+    "howItWorked": "Gravity assists bent its path from planet to planet, saving fuel while its instruments measured fields, particles, atmospheres, and rings.",
+    "discoveries": [
+      "It is the only spacecraft to have visited Uranus and Neptune.",
+      "It discovered active geysers on Neptune's moon Triton.",
+      "It crossed the heliopause in 2018."
+    ],
+    "whyItMatters": "Voyager 2 completed the only close-up survey of all four giant planets and keeps extending that map outward.",
+    "timeline": [
+      {
+        "date": "1977-08-20",
+        "label": "Launch",
+        "description": "Voyager 2 leaves Earth."
+      },
+      {
+        "date": "1986-01-24",
+        "label": "Uranus",
+        "description": "It makes humanity's first close flyby of Uranus."
+      },
+      {
+        "date": "1989-08-25",
+        "label": "Neptune",
+        "description": "It visits Neptune and Triton."
+      },
+      {
+        "date": "2018-11-05",
+        "label": "Interstellar space",
+        "description": "It crosses the heliopause."
+      }
+    ],
+    "imageReferences": [
+      "PIA01483",
+      "PIA18182"
+    ],
+    "sources": [
+      {
+        "title": "Voyager Mission Status",
+        "organization": "NASA Jet Propulsion Laboratory",
+        "url": "https://voyager.jpl.nasa.gov/mission/status/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Voyager current status, interstellar mission, power constraints"
+        ]
+      },
+      {
+        "title": "Voyager",
+        "organization": "NASA Jet Propulsion Laboratory",
+        "url": "https://www.jpl.nasa.gov/missions/voyager/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "Voyager objectives, planetary encounters, discoveries"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "Voyager current status, interstellar mission, power constraints",
+        "sourceUrls": [
+          "https://voyager.jpl.nasa.gov/mission/status/"
+        ]
+      },
+      {
+        "claim": "Voyager objectives, planetary encounters, discoveries",
+        "sourceUrls": [
+          "https://www.jpl.nasa.gov/missions/voyager/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "new-horizons",
+    "name": "New Horizons",
+    "destination": "Deep space",
+    "hardwareType": "Probe",
+    "launchDate": "2006-01-19",
+    "arrivalDate": "2015-07-14",
+    "status": "Operational",
+    "statusAsOf": "2026-10-24",
+    "statusSourceUrl": "https://science.nasa.gov/mission/new-horizons/",
+    "physicalFate": "New Horizons continues through the Kuiper Belt after its Pluto and Arrokoth encounters. NASA periodically places the spacecraft in hibernation to conserve power.",
+    "missionObjective": "New Horizons was built for the first close reconnaissance of Pluto and its moons, then extended to study Kuiper Belt objects.",
+    "howItWorked": "A compact radioisotope-powered spacecraft used cameras, spectrometers, and a dust detector during fast flybys.",
+    "discoveries": [
+      "It revealed Pluto's nitrogen-ice heart and surprisingly varied geology.",
+      "It made the first close encounter with a Kuiper Belt object, Arrokoth.",
+      "It continues measuring the distant outer Solar System."
+    ],
+    "whyItMatters": "New Horizons showed that even a small, fast spacecraft can rewrite the map of a world glimpsed only as a point of light.",
+    "timeline": [
+      {
+        "date": "2006-01-19",
+        "label": "Launch",
+        "description": "New Horizons begins its fast flight outward."
+      },
+      {
+        "date": "2015-07-14",
+        "label": "Pluto",
+        "description": "It makes the first close flyby of Pluto."
+      },
+      {
+        "date": "2019-01-01",
+        "label": "Arrokoth",
+        "description": "It flies past the Kuiper Belt object Arrokoth."
+      }
+    ],
+    "imageReferences": [
+      "PIA21589",
+      "PIA19873"
+    ],
+    "sources": [
+      {
+        "title": "New Horizons",
+        "organization": "NASA Science",
+        "url": "https://science.nasa.gov/mission/new-horizons/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "New Horizons current status, Pluto and Arrokoth encounters"
+        ]
+      },
+      {
+        "title": "New Horizons",
+        "organization": "NASA Jet Propulsion Laboratory",
+        "url": "https://www.jpl.nasa.gov/missions/new-horizons/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "New Horizons objective, engineering, discoveries"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "New Horizons current status, Pluto and Arrokoth encounters",
+        "sourceUrls": [
+          "https://science.nasa.gov/mission/new-horizons/"
+        ]
+      },
+      {
+        "claim": "New Horizons objective, engineering, discoveries",
+        "sourceUrls": [
+          "https://www.jpl.nasa.gov/missions/new-horizons/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pioneer-10",
+    "name": "Pioneer 10",
+    "destination": "Deep space",
+    "hardwareType": "Probe",
+    "launchDate": "1972-03-03",
+    "arrivalDate": "1973-12-04",
+    "missionEndDate": "1997-03-31",
+    "status": "Lost contact",
+    "statusAsOf": "2003-01-23",
+    "statusSourceUrl": "https://science.nasa.gov/missions/pioneer/pioneer-10-sends-last-signal/",
+    "physicalFate": "Pioneer 10 continues on a heliocentric escape trajectory beyond the outer planets, but its radioisotope power declined until NASA could no longer hear it. Its exact current condition is not observable from Earth.",
+    "missionObjective": "Pioneer 10 was the first spacecraft to travel through the asteroid belt and make a close encounter with Jupiter.",
+    "howItWorked": "Its instruments measured particles, magnetic fields, radiation, and the environment around Jupiter while a large dish antenna sent faint signals back to Earth.",
+    "discoveries": [
+      "It showed that a spacecraft could safely cross the asteroid belt.",
+      "It made the first close-up study of Jupiter and measured its intense radiation environment.",
+      "Its observations helped plan later missions to the outer planets."
+    ],
+    "whyItMatters": "Pioneer 10 was a pathfinder: it tested whether a machine could survive the route to the outer Solar System before more ambitious missions followed.",
+    "timeline": [
+      {
+        "date": "1972-03-03",
+        "label": "Launch",
+        "description": "Pioneer 10 leaves Earth."
+      },
+      {
+        "date": "1972-07-15",
+        "label": "Asteroid belt",
+        "description": "It becomes the first spacecraft to cross the main asteroid belt."
+      },
+      {
+        "date": "1973-12-04",
+        "label": "Jupiter",
+        "description": "It makes the first close flyby of Jupiter."
+      },
+      {
+        "date": "2003-01-23",
+        "label": "Last signal",
+        "description": "NASA receives the last faint signal from the spacecraft."
+      }
+    ],
+    "imageReferences": [
+      "ARC-1972-AC72-2135",
+      "ARC-1973-AC73-9019"
+    ],
+    "sources": [
+      {
+        "title": "Pioneer 10",
+        "organization": "NASA Science",
+        "url": "https://science.nasa.gov/mission/pioneer-10/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "objective, launch, asteroid belt crossing, Jupiter encounter"
+        ]
+      },
+      {
+        "title": "Pioneer 10 Sends Last Signal",
+        "organization": "NASA Science",
+        "url": "https://science.nasa.gov/missions/pioneer/pioneer-10-sends-last-signal/",
+        "sourceType": "NASA science page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "last signal and loss of contact"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "last signal received January 23, 2003",
+        "sourceUrls": [
+          "https://science.nasa.gov/missions/pioneer/pioneer-10-sends-last-signal/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pioneer-11",
+    "name": "Pioneer 11",
+    "destination": "Deep space",
+    "hardwareType": "Probe",
+    "launchDate": "1973-04-06",
+    "arrivalDate": "1979-09-01",
+    "missionEndDate": "1995-09-30",
+    "status": "Lost contact",
+    "statusAsOf": "1995-11-24",
+    "statusSourceUrl": "https://science.nasa.gov/mission/pioneer-11/",
+    "physicalFate": "Pioneer 11 continues outward on a heliocentric trajectory. It is silent after its final communication in 1995, so its present engineering condition cannot be directly checked.",
+    "missionObjective": "Pioneer 11 followed Pioneer 10 with close studies of Jupiter and Saturn, including the first visit to Saturn by a spacecraft.",
+    "howItWorked": "A spin-stabilized probe used instruments for fields, particles, radiation, and imaging while its radio system returned measurements across enormous distances.",
+    "discoveries": [
+      "It made the first close encounter with Saturn and helped reveal the planet’s polar regions and rings.",
+      "It found a new ring and a previously unknown moon at Saturn.",
+      "It provided a valuable radiation and dust survey for later missions."
+    ],
+    "whyItMatters": "Pioneer 11 extended the pathfinder idea from Jupiter to Saturn and made the outer Solar System a reachable place for spacecraft.",
+    "timeline": [
+      {
+        "date": "1973-04-06",
+        "label": "Launch",
+        "description": "Pioneer 11 leaves Earth."
+      },
+      {
+        "date": "1974-12-04",
+        "label": "Jupiter",
+        "description": "It flies past Jupiter and uses gravity to redirect its path."
+      },
+      {
+        "date": "1979-09-01",
+        "label": "Saturn",
+        "description": "It makes the first close flyby of Saturn."
+      },
+      {
+        "date": "1995-11-24",
+        "label": "Final contact",
+        "description": "The last communication is received from Pioneer 11."
+      }
+    ],
+    "imageReferences": [
+      "ARC-1982-AC82-0178"
+    ],
+    "sources": [
+      {
+        "title": "Pioneer 11",
+        "organization": "NASA Science",
+        "url": "https://science.nasa.gov/mission/pioneer-11/",
+        "sourceType": "NASA mission page",
+        "accessed": "2026-10-24",
+        "supports": [
+          "objective, Jupiter and Saturn encounters, mission outcome"
+        ]
+      },
+      {
+        "title": "Pioneer 11 Spacecraft Details",
+        "organization": "NASA National Space Science Data Center",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-019A",
+        "sourceType": "NASA technical report",
+        "accessed": "2026-10-24",
+        "supports": [
+          "mission dates and communications history"
+        ]
+      }
+    ],
+    "claimSources": [
+      {
+        "claim": "final communication in November 1995",
+        "sourceUrls": [
+          "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1973-019A"
+        ]
+      }
+    ]
+  }
+]
