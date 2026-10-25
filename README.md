@@ -1,96 +1,102 @@
-# Wayfinders
+# Wayfinders — NASA Hardware Across the Solar System
 
-Wayfinders is an independent educational field guide to NASA hardware left on worlds, in orbit, and traveling through deep space. It is designed for curious readers roughly 10–16 years old and separates a machine's physical fate from whether it still operates.
+**An educational field guide to NASA hardware left on other worlds, in orbit, and traveling through deep space.**
 
-## Stack
+Wayfinders explores spacecraft, landers, rovers, and probes, documenting what they discovered and what happened to them. Designed for readers aged 10–16, it distinguishes **operational status** from **physical fate**: a machine can stop operating while its hardware remains somewhere in space.
 
-- React and TypeScript
-- Vite
-- React Router
-- Local JSON mission and image catalogs
-- Node.js 20+ scripts using built-in `fetch` and filesystem APIs
+**[Live Demo](https://olympus-nasa-hackathon.vercel.app/)** · **[Mission Explorer](https://olympus-nasa-hackathon.vercel.app/explore)** · **[Research & Sources](https://olympus-nasa-hackathon.vercel.app/about)**
 
-Wayfinders is not an official NASA website and does not imply NASA endorsement.
+> Wayfinders is an independent educational project and is not affiliated with or endorsed by NASA.
 
-For a live demonstration, follow the prepared sequence in
-[PRESENTATION-GUIDE.md](./PRESENTATION-GUIDE.md). It starts with the landing
-page's physical-legacy framing, then uses Surveyor 3, Opportunity, and Voyager
-1 as contrasting verified records.
+## Features
 
-## Discovery index
+- **Mission Explorer** — explore documented NASA hardware.
+- **Discoveries** — browse scientific findings, their significance, and uncertainty.
+- **Solar System** — explore a schematic view of missions across the Solar System.
+- **Timeline** — follow mission events and milestones.
+- **Research & Sources** — trace claims to documented sources and understand the project's limitations.
 
-The `/discoveries` route is a discovery-focused view derived from the verified
-`discoveries` arrays in `data/missions.json`. Each entry keeps the observation
-separate from its conservative conclusion, significance, uncertainty, and the
-mission's original source URLs. Categories are only assigned where the
-existing record supports them; an unclassified finding remains searchable.
+## Technology
 
-## Prerequisites and setup
+React · TypeScript · Vite · React Router · JSON · Node.js 20+
 
-Requires Node.js 20 or newer.
+Mission records and NASA image metadata are stored locally. Normal website visits do not require NASA API requests.
+
+## Getting Started
+
+**Requirements:** Node.js 20 or newer and npm.
 
 ```bash
+git clone https://github.com/LaithAbuzaid/Olympus-NASA-HACKATHON.git
+cd Olympus-NASA-HACKATHON
 npm install
 npm run dev
 ```
 
-Open the local Vite URL printed in the terminal. The production build is fully local after data assets have been prepared; ordinary page loads do not call NASA APIs.
+Open the local URL printed in the terminal.
 
-## Production commands
+## Development Commands
 
-```bash
-npm run build       # TypeScript project build and Vite production bundle
-npm run preview     # Preview the production bundle
-npm run validate    # Validate mission records, citations, image paths, and local files
-```
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start the development server |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview the production build |
+| `npm run validate` | Validate mission data, citations, image references, and local files |
 
-There is no lint configuration in this project yet. The production build runs the configured TypeScript checker.
-
-## NASA image data pipeline
-
-Fetch a curated catalog from the official NASA Image and Video Library:
-
-```bash
-npm run fetch
-npm run fetch -- --query "Voyager 1 spacecraft" --max 6 --pages 2
-npm run fetch -- --dry-run
-```
-
-Download approved preview assets into `public/images/nasa/`:
-
-```bash
-npm run download
-```
-
-Validate the mission dataset and downloaded assets:
+Before publishing changes, run:
 
 ```bash
 npm run validate
+npm run build
 ```
 
-The fetcher uses bounded pagination, timeouts, retries, relevance ranking, duplicate NASA ID filtering, and records failed searches. The downloader only accepts HTTPS NASA hosts, limits response size and concurrency, verifies image signatures, and skips valid files on repeated runs.
+## NASA Image Pipeline
 
-## Adding a mission
+The project includes scripts to retrieve NASA Image and Video Library metadata, download approved assets, and validate local files.
 
-1. Add a record to `data/missions.json`.
-2. Use an explicit `status` and `statusAsOf`; do not infer current operation from an old mission page.
-3. Add `statusSourceUrl`, `sources`, and `claimSources` for major claims.
-4. Add NASA IDs to `imageReferences` only after the IDs exist in `data/nasa-image-catalog.json`.
-5. Run `npm run validate` and `npm run build`.
+```bash
+npm run fetch
+npm run download
+npm run validate
+```
 
-Mission records should include launch/arrival or encounter dates when verified, mission objective, plain-language engineering explanation, discoveries, physical fate, timeline, and why the record matters.
+To fetch a specific subject:
 
-## Updating status and citations
+```bash
+npm run fetch -- --query "Voyager 1 spacecraft" --max 6 --pages 2
+```
 
-Current status is time-sensitive. Update `status`, `statusAsOf`, `statusSourceUrl`, and any affected timeline or physical-fate text together. Sources include their title, organization, canonical URL, source type, access date, and the claims they support. Review the repository [research audit](./RESEARCH-AUDIT.md) before publishing a status change.
+Fetching and downloading require network access. The website itself uses the prepared local data and assets. The downloader restricts sources to HTTPS NASA hosts, checks image signatures, limits downloads, and skips valid files on repeated runs.
 
-## NASA image attribution
+## Research Standards
 
-The local image catalog preserves NASA ID, original title, description, creation date, credit, source URL, asset URL, and local path. Keep the displayed credit and NASA ID near the image or in the mission detail source section. NASA imagery may have additional usage guidance; check the original image page before redistribution.
+Scientific accuracy and transparency are central to Wayfinders.
 
-## Known limitations
+- **Traceable claims:** Major claims should have supporting source references.
+- **Separate status and fate:** Operational status must not be confused with the physical location or fate of hardware.
+- **Visible uncertainty:** Unconfirmed details must remain uncertain rather than being presented as facts.
+- **Dated status records:** Time-sensitive status information must include an `statusAsOf` date and a supporting source.
+- **Image attribution:** Preserve NASA IDs, original titles, credits, and source references.
 
-- The Solar System exhibit is schematic, not to scale, and never represents live spacecraft coordinates.
-- Operational status records are snapshots and require future review.
-- Some deep-space records use contextual spacecraft or instrument imagery where the catalog does not provide a direct photograph of the probe in flight; the original NASA title and credit are preserved.
-- The image pipeline requires network access only when refreshing the prepared dataset. The website itself reads local data and assets.
+To add a mission, update `data/missions.json` and reference image IDs present in `data/nasa-image-catalog.json`. Include the relevant sources and status information, then run the validation and build commands.
+
+Review [`RESEARCH-AUDIT.md`](./RESEARCH-AUDIT.md) before publishing research or status changes.
+
+## Limitations
+
+- The Solar System visualization is schematic, not to scale, and does not show live spacecraft coordinates.
+- Operational status records are snapshots that may require future review.
+- Some deep-space records use contextual imagery when direct photographs of a probe in flight are unavailable.
+- Passing validation checks does not independently prove every scientific claim.
+
+## Project Documentation
+
+- [`PRESENTATION-GUIDE.md`](./PRESENTATION-GUIDE.md) — prepared project demonstration sequence.
+- [`RESEARCH-AUDIT.md`](./RESEARCH-AUDIT.md) — research uncertainties and review points.
+- [`data/missions.json`](./data/missions.json) — mission and discovery records.
+- [`data/nasa-image-catalog.json`](./data/nasa-image-catalog.json) — NASA image metadata.
+
+---
+
+**Wayfinders / 2026** · An independent educational field guide to NASA hardware across the Solar System.
