@@ -447,7 +447,22 @@ function Footer() {
 
 function AboutPage() {
   usePageTitle("About & sources");
-  return <main className="about-page section-pad"><div className="page-heading"><p className="eyebrow">Research & sources</p><h1>How this archive works.</h1><p className="lede">A transparent field guide to machines that remain after the mission.</p></div><div className="about-columns"><section><p className="eyebrow">Selection</p><h2>NASA hardware, clearly labeled.</h2><p className="body-copy">The collection focuses on NASA spacecraft, landers, rovers, probes, and instruments. Non-NASA objects can appear only as clearly identified context. Status and physical fate are kept separate because a silent machine can still remain on another world.</p></section><section><p className="eyebrow">Method</p><h2>Facts first. Interpretation second.</h2><p className="body-copy">Dates, mission objectives, discoveries, and status references are recorded in the local mission dataset. Every source includes its title, organization, source type, access date, and the claims it supports. Images come from the official NASA Image and Video Library, with NASA IDs, titles, credits, original URLs, and local paths preserved.</p></section><section><p className="eyebrow">Limitations</p><h2>A snapshot, not live tracking.</h2><p className="body-copy">Operational status can change. The schematic Solar System view is intentionally not to scale and never represents current spacecraft coordinates. When a physical fate is uncertain, the record says so. Corrections, uncertainties, and future review points are recorded in the repository's research audit.</p></section></div></main>;
+  return <main className="about-page section-pad">
+    <div className="page-heading about-heading"><p className="eyebrow">Field guide / editorial method</p><h1>How this archive works.</h1><p className="lede">A transparent field guide to machines that remain after the mission.</p></div>
+    <div className="about-columns">
+      <section className="about-principle"><span className="about-marker">01</span><div><p className="eyebrow">Selection</p><h2>NASA hardware, clearly labeled.</h2><p className="body-copy">The collection focuses on NASA spacecraft, landers, rovers, probes, and instruments. Non-NASA objects can appear only as clearly identified context.</p></div></section>
+      <section className="about-principle"><span className="about-marker">02</span><div><p className="eyebrow">Method</p><h2>Facts first. Interpretation second.</h2><p className="body-copy">Dates, mission objectives, discoveries, and status references are recorded in the local mission dataset. Every source includes its title, organization, source type, access date, and the claims it supports. Images come from the official NASA Image and Video Library, with NASA IDs, titles, credits, original URLs, and local paths preserved.</p></div></section>
+      <section className="about-principle about-principle-emphasis"><span className="about-marker">03</span><div><p className="eyebrow">Limitations</p><h2>A snapshot, not live tracking.</h2><p className="body-copy">Operational status can change. A machine's <strong>physical fate</strong> describes where the record places it; its <strong>operational status</strong> describes whether it still works. The schematic Solar System view is intentionally not to scale and never represents current spacecraft coordinates. When a physical fate is uncertain, the record says so.</p></div></section>
+    </div>
+    <section className="about-resources" aria-labelledby="about-resources-heading">
+      <div><p className="eyebrow">Follow the record</p><h2 id="about-resources-heading">Trace the evidence in context.</h2><p className="body-copy">Start with the collection, browse findings, or open the repository audit. Each mission record carries its own source trail and canonical links.</p></div>
+      <nav className="about-resource-links" aria-label="Research resources">
+        <Link className="about-resource-link" to="/explore"><span>Mission explorer</span><ArrowRight size={16} /></Link>
+        <Link className="about-resource-link" to="/discoveries"><span>Discovery index</span><ArrowRight size={16} /></Link>
+        <a className="about-resource-link" href="https://github.com/LaithAbuzaid/Olympus-NASA-HACKATHON/blob/main/RESEARCH-AUDIT.md" target="_blank" rel="noreferrer"><span>Public research audit</span><ExternalLink size={14} /></a>
+      </nav>
+    </section>
+  </main>;
 }
 
 function App() {
