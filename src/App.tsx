@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { ArrowRight, ChevronDown, ExternalLink, Menu, Search, X, Eye } from "lucide-react";
 import { Link, Route, Routes, useLocation, useNavigate, useNavigationType, useParams } from "react-router-dom";
 import { discoveries, formatDate, imagesForMission, missions, primaryImage, year } from "./data/catalog";
@@ -11,6 +11,41 @@ const statusClass = (status: MissionStatus) => status.toLowerCase().replaceAll("
 
 function usePageTitle(title: string) {
   useEffect(() => { document.title = `${title} — Wayfinders`; }, [title]);
+}
+
+function useAboutMotion(rootRef: RefObject<HTMLElement>) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    root.classList.add("about-motion-ready");
+    const entranceTargets = root.querySelectorAll<HTMLElement>(".about-heading, .about-resources");
+    const frame = window.requestAnimationFrame(() => {
+      entranceTargets.forEach(target => target.classList.add("is-visible"));
+    });
+    const sections = root.querySelectorAll<HTMLElement>(".about-principle");
+    if (typeof IntersectionObserver === "undefined") {
+      sections.forEach(section => section.classList.add("is-visible"));
+      return () => {
+        window.cancelAnimationFrame(frame);
+        root.classList.remove("about-motion-ready");
+      };
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18 });
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      root.classList.remove("about-motion-ready");
+    };
+  }, [rootRef]);
 }
 
 function ScrollManager() {
@@ -447,7 +482,9 @@ function Footer() {
 
 function AboutPage() {
   usePageTitle("About & sources");
-  return <main className="about-page section-pad">
+  const aboutRef = useRef<HTMLElement>(null);
+  useAboutMotion(aboutRef);
+  return <main ref={aboutRef} className="about-page section-pad">
     <div className="page-heading about-heading"><p className="eyebrow">Field guide / editorial method</p><h1>How this archive works.</h1><p className="lede">A transparent field guide to machines that remain after the mission.</p></div>
     <div className="about-columns">
       <section className="about-principle"><span className="about-marker">01</span><div><p className="eyebrow">Selection</p><h2>NASA hardware, clearly labeled.</h2><p className="body-copy">The collection focuses on NASA spacecraft, landers, rovers, probes, and instruments. Non-NASA objects can appear only as clearly identified context.</p></div></section>
