@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, ChevronDown, ExternalLink, Menu, Search, X, GitCompareArrows, Eye, Check } from "lucide-react";
+import { ArrowRight, ChevronDown, ExternalLink, Menu, Search, X, Eye } from "lucide-react";
 import { Link, Route, Routes, useLocation, useNavigate, useNavigationType, useParams } from "react-router-dom";
 import { discoveries, formatDate, imagesForMission, missions, primaryImage, year } from "./data/catalog";
 import type { Destination, DiscoveryCategory, HardwareType, ImageRecord, MissionRecord, MissionStatus } from "./types";
@@ -237,7 +237,6 @@ function Explorer() {
   const [hardware, setHardware] = useState<typeof hardwareTypes[number]>(valid(params.get("hardware"), hardwareTypes, "All hardware"));
   const [status, setStatus] = useState<typeof statuses[number]>(valid(params.get("status"), statuses, "All statuses"));
   const [sort, setSort] = useState<SortOrder>(valid(params.get("sort"), ["chronology", "launch-newest", "duration"] as const, "chronology"));
-  const [compareIds, setCompareIds] = useState<string[]>(params.get("compare")?.split(",").filter(id => missions.some(m => m.id === id)).slice(0, 3) ?? []);
   const [quickView, setQuickView] = useState<MissionRecord | null>(null);
   useEffect(() => {
     if (hydratingFromUrl.current) {
@@ -250,9 +249,8 @@ function Explorer() {
     if (hardware !== "All hardware") next.set("hardware", hardware);
     if (status !== "All statuses") next.set("status", status);
     if (sort !== "chronology") next.set("sort", sort);
-    if (compareIds.length) next.set("compare", compareIds.join(","));
     navigate({ pathname: "/explore", search: next.toString() }, { replace: true });
-  }, [query, destination, hardware, status, sort, compareIds, navigate]);
+  }, [query, destination, hardware, status, sort, navigate]);
   useEffect(() => {
     const next = new URLSearchParams(location.search);
     setQuery(next.get("q") ?? "");
@@ -260,7 +258,6 @@ function Explorer() {
     setHardware(valid(next.get("hardware"), hardwareTypes, "All hardware"));
     setStatus(valid(next.get("status"), statuses, "All statuses"));
     setSort(valid(next.get("sort"), ["chronology", "launch-newest", "duration"] as const, "chronology"));
-    setCompareIds(next.get("compare")?.split(",").filter(id => missions.some(m => m.id === id)).slice(0, 3) ?? []);
   }, [location.search]); // supports browser back/forward
   const durationDays = (mission: MissionRecord) => mission.missionEndDate ? Math.max(0, (Date.parse(mission.missionEndDate) - Date.parse(mission.launchDate)) / 86400000) : null;
   const filtered = useMemo(() => missions.filter(mission => {
@@ -271,12 +268,10 @@ function Explorer() {
     if (sort === "duration") return (durationDays(b) ?? Number.POSITIVE_INFINITY) - (durationDays(a) ?? Number.POSITIVE_INFINITY);
     return a.launchDate.localeCompare(b.launchDate);
   }), [query, destination, hardware, status, sort]);
-  const reset = () => { setQuery(""); setDestination("All destinations"); setHardware("All hardware"); setStatus("All statuses"); setSort("chronology"); setCompareIds([]); };
-  const toggleCompare = (id: string) => setCompareIds(current => current.includes(id) ? current.filter(item => item !== id) : current.length < 3 ? [...current, id] : current);
+  const reset = () => { setQuery(""); setDestination("All destinations"); setHardware("All hardware"); setStatus("All statuses"); setSort("chronology"); };
   const activeFilters = [query && `Search: ${query}`, destination !== "All destinations" && destination, hardware !== "All hardware" && hardware, status !== "All statuses" && status, sort !== "chronology" && (sort === "duration" ? "Duration" : "Newest first")].filter(Boolean) as string[];
   const suggestions = missions.filter(mission => mission.name.toLowerCase().includes(query.toLowerCase())).slice(0, 3);
-  const compared = compareIds.map(id => missions.find(mission => mission.id === id)).filter(Boolean) as MissionRecord[];
-  return <main className="explore-page section-pad"><div className="page-heading"><p className="eyebrow">The explorer</p><h1>Find a wayfinder.</h1><p className="lede">Search mission names, discoveries, hardware, destinations, and keywords across verified records.</p></div><div className="filter-bar"><label className="search-field"><Search size={17} /><span className="sr-only">Search missions</span><input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search mission, place, or discovery" /></label><FilterSelect label="Destination" value={destination} options={destinations} onChange={setDestination} /><FilterSelect label="Hardware type" value={hardware} options={hardwareTypes} onChange={setHardware} /><FilterSelect label="Status" value={status} options={statuses} onChange={setStatus} /><FilterSelect label="Sort records" value={sort} options={["chronology", "launch-newest", "duration"]} onChange={setSort} /></div>{activeFilters.length > 0 && <div className="active-filters" aria-label="Active filters">{activeFilters.map(filter => <span key={filter}>{filter}</span>)}</div>}<div className="results-row"><p className="result-count">{filtered.length} {filtered.length === 1 ? "record" : "records"} in view</p><button className="reset-button" onClick={reset}>Reset all</button></div>{query && suggestions.length > 0 && <div className="suggestions" aria-label="Record suggestions"><span>Actual records</span>{suggestions.map(mission => <button key={mission.id} onClick={() => setQuery(mission.name)}>{mission.name}</button>)}</div>}{filtered.length ? <div className="mission-grid">{filtered.map(mission => <div className="explorer-result" key={mission.id}><MissionCard mission={mission} /><div className="result-actions"><button onClick={() => setQuickView(mission)} aria-label={`Quick view ${mission.name}`}><Eye size={14} /> Quick view</button><button onClick={() => toggleCompare(mission.id)} aria-pressed={compareIds.includes(mission.id)} disabled={!compareIds.includes(mission.id) && compareIds.length >= 3}><Check size={14} /> {compareIds.includes(mission.id) ? "Compared" : "Compare"}</button></div></div>)}</div> : <div className="empty-state"><h2>No wayfinders found.</h2><p>Try an exact record suggestion, remove an active filter, or reset the explorer.</p><button className="button button-outline" onClick={reset}>Reset all</button></div>}{compared.length > 0 && <section className="comparison-panel" aria-labelledby="comparison-heading"><div className="section-heading"><h2 id="comparison-heading">Compare records</h2><button className="reset-button" onClick={() => setCompareIds([])}>Clear comparison</button></div><div className="comparison-grid">{compared.map(mission => <article key={mission.id}><button className="comparison-remove" onClick={() => toggleCompare(mission.id)} aria-label={`Remove ${mission.name}`}><X size={14} /></button><p className="eyebrow">{mission.destination} / {mission.hardwareType}</p><h3>{mission.name}</h3><dl><div><dt>Launch</dt><dd>{formatDate(mission.launchDate)}</dd></div><div><dt>Status</dt><dd><StatusPill status={mission.status} /></dd></div><div><dt>Objective</dt><dd>{mission.missionObjective}</dd></div></dl></article>)}</div></section>}{quickView && <QuickView mission={quickView} onClose={() => setQuickView(null)} />}</main>;
+  return <main className="explore-page section-pad"><div className="page-heading"><p className="eyebrow">The explorer</p><h1>Find a wayfinder.</h1><p className="lede">Search mission names, discoveries, hardware, destinations, and keywords across verified records.</p></div><div className="filter-bar"><label className="search-field"><Search size={17} /><span className="sr-only">Search missions</span><input value={query} onChange={event => setQuery(event.target.value)} placeholder="Search mission, place, or discovery" /></label><FilterSelect label="Destination" value={destination} options={destinations} onChange={setDestination} /><FilterSelect label="Hardware type" value={hardware} options={hardwareTypes} onChange={setHardware} /><FilterSelect label="Status" value={status} options={statuses} onChange={setStatus} /><FilterSelect label="Sort records" value={sort} options={["chronology", "launch-newest", "duration"]} onChange={setSort} /></div>{activeFilters.length > 0 && <div className="active-filters" aria-label="Active filters">{activeFilters.map(filter => <span key={filter}>{filter}</span>)}</div>}<div className="results-row"><p className="result-count">{filtered.length} {filtered.length === 1 ? "record" : "records"} in view</p><button className="reset-button" onClick={reset}>Reset all</button></div>{query && suggestions.length > 0 && <div className="suggestions" aria-label="Record suggestions"><span>Actual records</span>{suggestions.map(mission => <button key={mission.id} onClick={() => setQuery(mission.name)}>{mission.name}</button>)}</div>}{filtered.length ? <div className="mission-grid">{filtered.map(mission => <div className="explorer-result" key={mission.id}><MissionCard mission={mission} /><div className="result-actions"><button onClick={() => setQuickView(mission)} aria-label={`Quick view ${mission.name}`}><Eye size={14} /> Quick view</button></div></div>)}</div> : <div className="empty-state"><h2>No wayfinders found.</h2><p>Try an exact record suggestion, remove an active filter, or reset the explorer.</p><button className="button button-outline" onClick={reset}>Reset all</button></div>}{quickView && <QuickView mission={quickView} onClose={() => setQuickView(null)} />}</main>;
 }
 
 const discoveryCategories: Array<"All categories" | DiscoveryCategory> = [
@@ -308,8 +303,19 @@ function DiscoveryExplorer() {
 }
 
 function QuickView({ mission, onClose }: { mission: MissionRecord; onClose: () => void }) {
-  useEffect(() => { const close = (event: KeyboardEvent) => event.key === "Escape" && onClose(); document.addEventListener("keydown", close); return () => document.removeEventListener("keydown", close); }, [onClose]);
-  return <div className="quick-view-backdrop" role="presentation" onMouseDown={event => event.target === event.currentTarget && onClose()}><aside className="quick-view" role="dialog" aria-modal="true" aria-labelledby="quick-view-title"><button className="quick-view-close" onClick={onClose} aria-label="Close quick view"><X /></button><p className="eyebrow">{mission.destination} / {mission.hardwareType}</p><h2 id="quick-view-title">{mission.name}</h2><dl><div><dt>Objective</dt><dd>{mission.missionObjective}</dd></div><div><dt>Major discovery</dt><dd>{mission.discoveries[0] ?? "Discovery not recorded"}</dd></div><div><dt>Physical fate</dt><dd>{mission.physicalFate}</dd></div><div><dt>Status</dt><dd><StatusPill status={mission.status} /> <small>as of {formatDate(mission.statusAsOf)}</small></dd></div></dl><Link className="button button-outline" to={`/missions/${mission.id}`} onClick={onClose}>Open full field note <ArrowRight size={15} /></Link></aside></div>;
+  const closeButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButton.current?.focus();
+    document.addEventListener("keydown", close);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", close);
+    };
+  }, [onClose]);
+  return <div className="quick-view-backdrop" role="presentation" onMouseDown={event => event.target === event.currentTarget && onClose()}><aside className="quick-view" role="dialog" aria-modal="true" aria-labelledby="quick-view-title"><button ref={closeButton} className="quick-view-close" onClick={onClose} aria-label="Close quick view"><X /></button><p className="eyebrow">{mission.destination} / {mission.hardwareType}</p><h2 id="quick-view-title">{mission.name}</h2><dl><div><dt>Objective</dt><dd>{mission.missionObjective}</dd></div><div><dt>Major discovery</dt><dd>{mission.discoveries[0] ?? "Discovery not recorded"}</dd></div><div><dt>Physical fate</dt><dd>{mission.physicalFate}</dd></div><div><dt>Status</dt><dd><StatusPill status={mission.status} /> <small>as of {formatDate(mission.statusAsOf)}</small></dd></div></dl><Link className="button button-outline" to={`/missions/${mission.id}`} onClick={onClose}>Open full field note <ArrowRight size={15} /></Link></aside></div>;
 }
 
 function HardwareExplorer({ mission }: { mission: MissionRecord }) {
