@@ -24,25 +24,26 @@ function ScrollManager() {
     positions.current.set(previousKey.current, previousPosition);
     previousKey.current = location.key;
 
-    const restore = () => {
-      if (location.hash) {
-        const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-        if (target) {
-          target.scrollIntoView();
-          return;
-        }
+    const shouldAnimate = navigationType !== "POP" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior = shouldAnimate ? "smooth" : "auto";
+    if (location.hash) {
+      const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (target) {
+        target.scrollIntoView({ behavior, block: "start" });
+        return;
       }
-      const savedPosition = navigationType === "POP" ? positions.current.get(location.key) : undefined;
-      window.scrollTo(0, savedPosition ?? 0);
-    };
+    }
 
-    const frame = window.requestAnimationFrame(restore);
-    const delayedRestore = window.setTimeout(restore, 100);
-    return () => {
-      window.cancelAnimationFrame(frame);
-      window.clearTimeout(delayedRestore);
-    };
+    const savedPosition = navigationType === "POP" ? positions.current.get(location.key) : undefined;
+    window.scrollTo({ top: savedPosition ?? 0, left: 0, behavior });
   }, [location.key, location.hash, navigationType]);
+
+  useEffect(() => {
+    const recordPosition = () => positions.current.set(location.key, window.scrollY);
+    recordPosition();
+    window.addEventListener("scroll", recordPosition, { passive: true });
+    return () => window.removeEventListener("scroll", recordPosition);
+  }, [location.key]);
 
   useEffect(() => {
     const previousRestoration = history.scrollRestoration;
