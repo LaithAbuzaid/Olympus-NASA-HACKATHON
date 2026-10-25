@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type RefObject } from "react";
 import { ArrowRight, ChevronDown, ExternalLink, Menu, Search, X, Eye } from "lucide-react";
-import { Link, Route, Routes, useLocation, useNavigate, useNavigationType, useParams } from "react-router-dom";
+import { Link, NavLink, Route, Routes, useLocation, useNavigate, useNavigationType, useParams } from "react-router-dom";
 import { discoveries, formatDate, imagesForMission, missions, primaryImage, year } from "./data/catalog";
 import type { Destination, DiscoveryCategory, HardwareType, ImageRecord, MissionRecord, MissionStatus } from "./types";
 
@@ -95,11 +95,11 @@ function Header() {
     <Link className="wordmark" to="/" onClick={() => setOpen(false)}>WAYFINDERS <span>/ NASA HARDWARE</span></Link>
     <button className="menu-button" aria-label={open ? "Close navigation" : "Open navigation"} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
     <nav className={open ? "nav-links is-open" : "nav-links"} aria-label="Primary navigation">
-      <Link to="/explore" onClick={() => setOpen(false)}>Mission explorer</Link>
-      <Link to="/discoveries" onClick={() => setOpen(false)}>Discoveries</Link>
-      <Link to="/solar-system" onClick={() => setOpen(false)}>Solar System</Link>
-      <Link to="/timeline" onClick={() => setOpen(false)}>Timeline</Link>
-      <Link to="/about" onClick={() => setOpen(false)}>About & sources</Link>
+      <NavLink to="/explore" onClick={() => setOpen(false)}>Mission explorer</NavLink>
+      <NavLink to="/discoveries" onClick={() => setOpen(false)}>Discoveries</NavLink>
+      <NavLink to="/solar-system" onClick={() => setOpen(false)}>Solar System</NavLink>
+      <NavLink to="/timeline" onClick={() => setOpen(false)}>Timeline</NavLink>
+      <NavLink to="/about" onClick={() => setOpen(false)}>About & sources</NavLink>
     </nav>
   </header>;
 }
